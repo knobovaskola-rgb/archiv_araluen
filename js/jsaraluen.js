@@ -16,7 +16,7 @@ if (burger && nav) {
 const countdown = document.getElementById("countdown");
 
 if (countdown) {
-    const targetDate = new Date("May 30, 2026 10:00:00").getTime();
+    const targetDate = new Date("June 30, 2026 10:00:00").getTime();
 
     function updateCountdown() {
         const now = new Date().getTime();
