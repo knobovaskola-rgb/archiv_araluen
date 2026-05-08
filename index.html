@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Archiv Araluenu | Muzeum hraničářů</title>
+
+    <link rel="stylesheet" href="css/araluencss.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="#" class="logo">
+            <img src="img/dublist.png" alt="Logo Archivu">
+        </a>
+
+        <h2>Archiv Araluenu</h2>
+
+        <ul class="nav-links">
+            <li><a href="#expozice">Expozice</a></li>
+            <li><a href="#rezervace">Rezervace</a></li>
+            <li><a href="#faq">FAQ</a></li>
+            <li><a href="#mapa">Mapa</a></li>
+        </ul>
+
+        <div class="burger" aria-label="Menu" role="button">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="hero-content">
+            <h1>Rozšíření výstavy</h1>
+            <p>Morgarathova vojska začínají za:</p>
+            <div id="countdown" class="timer">DD:HH:MM:SS</div>
+        </div>
+    </header>
+
+    <main>
+
+        <section id="premium" class="carousel-section">
+    <div class="carousel-container">
+
+        <button class="prev" type="button">❮</button>
+
+        <div class="carousel-slide">
+            <img src="img/mistnost1.2.png" alt="Ukázka výstavy">
+            <img src="img/mistnost2.png" alt="Stáj">
+            <img src="img/mistnos3.2.png" alt="Dětský koutek">
+            <img src="img/mistnost4.2.png" alt="Zbrojnice">
+        </div>
+
+        <button class="next" type="button">❯</button>    
+    </div>
+        <p class="mistnosti-text">Takto to u nás vypadá</p>
+</section>
+
+        <!-- expozice -->
+        <section id="expozice" class="expozice-grid">
+            <h2>Vzácné exponáty</h2>
+            <div class="grid-wrapper">
+                <?php include 'php/load_expozice.php'; ?>
+            </div>
+        </section>
+
+        <!-- rezervace -->
+        <section id="rezervace" class="booking-section">
+            <h2>Žádost o audienci</h2>
+            <form id="reservation-form" method="POST" action="php/rezervace.php">
+                
+                <div class="form-row">
+                    <label>
+                        Datum:
+                        <input type="date" name="datum" required>
+                    </label>
+
+                    <label>
+                        Čas:
+                        <input type="time" name="cas" required>
+                    </label>
+
+                    <label>
+                        Počet osob:
+                        <input type="number" name="osob" min="1" required>
+                    </label>
+                </div>
+                
+                <label for="typ">Typ:</label>
+                <select name="typ" id="typ">
+                    <option value="ucen">Učeň</option>
+                    <option value="hranicar">Hraničář</option>
+                    <option value="garda">Královská garda</option>
+                </select>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="vasi.jmeno@redmont.ar" required>
+
+                <button type="submit" class="btn-rezervace">Rezervace</button>
+            </form>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2>Často kladené otázky</h2>
+
+            <details>
+                <summary>Můžu si vzít vlastního koně?</summary>
+                <p>Pouze pokud mu rozumíte. Koně plemene hraničářů mají vlastní ustájení před branou.</p>
+            </details>
+
+            <details>
+                <summary>Je výstava bezpečná pro děti?</summary>
+                <p>Ano, pokud se nedotýkají otrávených šipek v sekci Kalkara.</p>
+            </details>
+            <details>
+        <summary>Jsou povoleny fotografie?</summary>
+                <p>
+                    Fotografování bez blesku je povoleno ve všech sálech kromě královské zbrojnice.
+                </p>
+            </details>
+
+            <details>
+                <summary>Jak dlouho trvá prohlídka?</summary>
+                <p>
+                    Běžná prohlídka trvá přibližně 60 až 90 minut podle zájmu návštěvníků.
+                </p>
+            </details>
+
+            <details>
+                <summary>Je možné zakoupit suvenýry?</summary>
+                <p>
+                    Ano, u východu naleznete obchod s mapami, replikami šípů a dubovými přívěsky.
+                </p>
+            </details>
+
+            <details>
+                <summary>Má muzeum bezbariérový přístup?</summary>
+                <p>
+                    Ano, všechny hlavní expozice jsou přístupné i návštěvníkům s omezenou pohyblivostí.
+                </p>
+            </details>
+             <details>
+        <summary>Musím si rezervovat vstup předem?</summary>
+        <p>
+            Pouze pokud jste větší skupina nebo chcete mít jistotu že nebudete čekat.
+        </p>
+    </details>
+        </section>
+
+        <!-- mapa -->
+        <section id="mapa">
+            <h2>Kde nás hledat</h2>
+            <div class="map-wrapper">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d190.33462516029286!2d14.414434668066805!3d50.07079653215123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b945f2160f193%3A0xf6d116344c7506c!2sDrakkaria.cz%20-%20Historick%C3%BD%20obchod!5e0!3m2!1scs!2scz!4v1778256257408!5m2!1scs!2scz" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                <p class="map-text">
+                    Muzeum není skutečné, avšak pokud se o něco podobného zajímáte,
+                    vyražte do tohoto obchůdku.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="kontakty">
+            <h3>Kontakty</h3>
+            <p>Hrad Araluen, Království Araluen</p>
+            <p>Email: <a href="mailto:info@archiv-araluenu.cz">info@archiv-araluenu.cz</a></p>
+        </div>
+    </footer>
+
+    <script src="js/jsaraluen.js"></script>
+
+</body>
+</html>
