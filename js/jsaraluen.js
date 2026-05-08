@@ -169,3 +169,37 @@ async function nactiExpozici() {
 
 // Spustit po načtení stránky
 document.addEventListener('DOMContentLoaded', nactiExpozici);
+async function nactiExpozici() {
+    const container = document.getElementById('expozice-container');
+    if (!container) return;
+
+    try {
+        const response = await fetch('data/expozice.csv');
+        const data = await response.text();
+        const radky = data.split('\n');
+        let htmlObsah = '';
+
+        radky.forEach((radek, index) => {
+            if (radek.trim() === '' || index === 0) return;
+            const sloupce = radek.split(';');
+            
+            if (sloupce.length >= 3) {
+                const nazev = sloupce[0].trim();
+                const popis = sloupce[1].trim();
+                const obrazek = sloupce[2].trim();
+                
+                htmlObsah += `
+                    <div class="exponat">
+                        <img src="img/${obrazek}" alt="${nazev}" style="width:100%; border-radius:8px;">
+                        <h3>${nazev}</h3>
+                        <p>${popis}</p>
+                    </div>
+                `;
+            }
+        });
+        container.innerHTML = htmlObsah;
+    } catch (error) {
+        console.error('Chyba:', error);
+    }
+}
+document.addEventListener('DOMContentLoaded', nactiExpozici);
