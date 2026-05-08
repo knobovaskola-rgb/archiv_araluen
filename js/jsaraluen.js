@@ -148,6 +148,7 @@ async function nactiExpozici() {
             if (sloupce.length >= 2) {
                 const nazev = sloupce[0].trim();
                 const popis = sloupce[1].trim();
+                const obrazek = sloupce[2].trim();
                 
                 // Vytvoření HTML pro jeden exponát
                 htmlObsah += `
