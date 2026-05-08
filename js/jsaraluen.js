@@ -125,29 +125,46 @@ links.forEach(link => {
 // ==========================
 
 async function nactiExpozici() {
+    const container = document.getElementById('expozice-container');
+    if (!container) return;
+
     try {
+        // Načtení souboru expozice.csv
         const response = await fetch('data/expozice.csv');
         const data = await response.text();
-        const radek = data.split('\n');
-        const container = document.getElementById('expozice-container');
-
-        // Začneme od 1, pokud máš v CSV záhlaví (název, popis...)
-        for (let i = 1; i < radek.length; i++) {
-            if (radek[i].trim() === "") continue;
-            const sloupce = radek[i].split(','); // Předpokládám, že oddělovač je čárka
+        
+        // Rozdělení na řádky
+        const radky = data.split('\n');
+        
+        let htmlObsah = '';
+        
+        // Projdeme řádky (přeskočíme první, pokud je to záhlaví)
+        radky.forEach((radek, index) => {
+            if (radek.trim() === '' || index === 0) return;
             
-            const html = `
-                <div class="exponat-item">
-                    <h3>${sloupce[0]}</h3>
-                    <p>${sloupce[1]}</p>
-                </div>
-            `;
-            container.innerHTML += html;
-        }
+            // Rozdělení řádku podle středníku (podle tvého load_expozice.php)
+            const sloupce = radek.split(';');
+            
+            if (sloupce.length >= 2) {
+                const nazev = sloupce[0].trim();
+                const popis = sloupce[1].trim();
+                
+                // Vytvoření HTML pro jeden exponát
+                htmlObsah += `
+                    <div class="exponat">
+                        <h3>${nazev}</h3>
+                        <p>${popis}</p>
+                    </div>
+                `;
+            }
+        });
+        
+        container.innerHTML = htmlObsah;
     } catch (error) {
-        console.error('Chyba při načítání exponátů:', error);
+        console.error('Chyba při načítání CSV:', error);
+        container.innerHTML = '<p>Nepodařilo se načíst exponáty.</p>';
     }
 }
 
-// Spustit funkci po načtení stránky
-window.addEventListener('DOMContentLoaded', nactiExpozici);
+// Spustit po načtení stránky
+document.addEventListener('DOMContentLoaded', nactiExpozici);
