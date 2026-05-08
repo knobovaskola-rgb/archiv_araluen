@@ -107,7 +107,7 @@ async function nactiExpozici() {
                 
                 htmlObsah += `
                     <div class="exponat">
-                        <img src="img/${obrazek}" alt="${nazev}" style="width:100%; border-radius:8px; margin-bottom:10px;">
+                        <img src="./img/${obrazek}" alt="${nazev}" style="width:100%; border-radius:8px; margin-bottom:10px;">
                         <h3>${nazev}</h3>
                         <p>${popis}</p>
                     </div>
