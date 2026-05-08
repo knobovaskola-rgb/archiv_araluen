@@ -119,3 +119,35 @@ links.forEach(link => {
         }
     });
 });
+
+// ==========================
+// VZÁCNÉ EXPONÁTY
+// ==========================
+
+async function nactiExpozici() {
+    try {
+        const response = await fetch('data/expozice.csv');
+        const data = await response.text();
+        const radek = data.split('\n');
+        const container = document.getElementById('expozice-container');
+
+        // Začneme od 1, pokud máš v CSV záhlaví (název, popis...)
+        for (let i = 1; i < radek.length; i++) {
+            if (radek[i].trim() === "") continue;
+            const sloupce = radek[i].split(','); // Předpokládám, že oddělovač je čárka
+            
+            const html = `
+                <div class="exponat-item">
+                    <h3>${sloupce[0]}</h3>
+                    <p>${sloupce[1]}</p>
+                </div>
+            `;
+            container.innerHTML += html;
+        }
+    } catch (error) {
+        console.error('Chyba při načítání exponátů:', error);
+    }
+}
+
+// Spustit funkci po načtení stránky
+window.addEventListener('DOMContentLoaded', nactiExpozici);
