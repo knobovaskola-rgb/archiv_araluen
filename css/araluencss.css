@@ -199,6 +199,25 @@ a:hover {
     background: rgba(0,0,0,0.4);
 }
 
+/* Styl pro zprávu po odpočtu */
+#countdown-message {
+    display: none;
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: var(--accent-gold);
+    color: var(--dark-wood);
+    font-family: 'Cinzel', serif;
+    font-size: 1.8rem;
+    font-weight: bold;
+    border-radius: 8px;
+    animation: fadeIn 1s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 /* =========================
    CAROUSEL
 ========================= */
