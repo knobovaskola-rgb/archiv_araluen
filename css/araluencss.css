@@ -1,36 +1,26 @@
 /* =========================================
-   ZÁKLADNÍ NASTAVENÍ
+   ZÁKLADNÍ NASTAVENÍ A FIXNÍ NAVBAR
    ========================================= */
 :root {
     --primary-green: #2d5a27;
     --dark-wood: #3e2723;
     --accent-gold: #d4af37;
     --light-parchment: #f4ece1;
-    --text-color: #333;
 }
 
 * {
     box-sizing: border-box;
 }
 
-html, body {
-    width: 100%;
+body {
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
     font-family: 'Open Sans', sans-serif;
     background-color: var(--light-parchment);
-    color: var(--text-color);
 }
 
-/* =========================================
-   NAVBAR (FIXNÍ NAHOŘE)
-   ========================================= */
 .navbar {
-    position: fixed;
+    position: fixed; /* Fixní menu nahoře */
     top: 0;
     left: 0;
     width: 100%;
@@ -44,16 +34,12 @@ html, body {
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
 }
 
-.navbar .logo img {
-    height: 50px;
-}
-
+/* Nápis vpravo pro PC */
 @media (min-width: 769px) {
     .navbar h2 {
         margin-left: auto;
         margin-right: 40px;
         font-family: 'Cinzel', serif;
-        font-size: 1.8rem;
     }
 }
 
@@ -66,198 +52,91 @@ html, body {
 .nav-links a {
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s;
 }
 
-.nav-links a:hover {
-    color: var(--accent-gold);
-}
-
-.burger {
-    display: none;
-    cursor: pointer;
-    flex-direction: column;
-    gap: 5px;
-}
-
-.burger span {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-}
-
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-    .burger {
-        display: flex;
-    }
-}
-
-/* =========================================
-   HERO SEKCE (ODSAZENÍ KVŮLI MENU)
-   ========================================= */
-.hero {
+/* Hero sekce musí mít odsazení, aby nezalézala pod navbar */
+.hero, section:first-of-type {
     padding-top: 100px;
-    text-align: center;
-    padding-bottom: 50px;
-}
-
-#countdown {
-    font-size: 2rem;
-    font-weight: bold;
-    color: var(--dark-wood);
-    margin: 20px 0;
 }
 
 /* =========================================
-   CAROUSEL & NÁPIS
+   CAROUSEL A TEXT "TAKTO TO U NÁS VYPADÁ"
    ========================================= */
-.carousel-section {
-    padding: 40px 0;
-}
-
 .carousel-container {
     position: relative;
     max-width: 800px;
-    margin: 0 auto;
+    margin: 20px auto;
     overflow: hidden;
-    border: 5px solid var(--dark-wood);
-    border-radius: 10px;
 }
 
 .carousel-slide {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s ease;
 }
 
 .carousel-slide img {
     width: 100%;
-    flex-shrink: 0;
 }
-
-.prev, .next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
-    color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    z-index: 10;
-}
-
-.next { right: 0; }
-.prev { left: 0; }
 
 .mistnosti-text {
     text-align: center;
-    font-size: 2.5rem;
+    font-size: 2.5rem; /* Zvětšený nápis */
     font-family: 'Cinzel', serif;
     color: var(--dark-wood);
     margin: 40px 0;
-    text-transform: uppercase;
     font-weight: bold;
-    letter-spacing: 2px;
-}
-
-@media (max-width: 768px) {
-    .mistnosti-text { font-size: 1.8rem; }
 }
 
 /* =========================================
-   EXPOZICE (GRID SYSTÉM)
+   VZÁCNÉ EXPONÁTY (Grid a obrázky)
    ========================================= */
 .grid-wrapper {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    padding: 20px 5%;
-    max-width: 1200px;
-    margin: 0 auto;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
 }
 
 .exponat {
-    background: white;
-    padding: 20px;
-    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 15px;
+    border-radius: 10px;
     text-align: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    border-bottom: 4px solid var(--accent-gold);
-    transition: transform 0.3s;
-}
-
-.exponat:hover {
-    transform: translateY(-5px);
+    border: 1px solid var(--accent-gold);
 }
 
 .exponat img {
     width: 100%;
-    height: 250px;
-    object-fit: contain; 
-    background-color: #f9f9f9;
-    border-radius: 8px;
-    margin-bottom: 15px;
-}
-
-.exponat h3 {
-    font-family: 'Cinzel', serif;
-    color: var(--primary-green);
+    height: 250px; /* Fixní výška pro zarovnání */
+    object-fit: contain; /* Obrázky nejsou useknuté */
+    border-radius: 5px;
     margin-bottom: 10px;
 }
 
 /* =========================================
-   FORMULÁŘ
+   FORMULÁŘ A FAQ (Návrat k původnímu stylu)
    ========================================= */
-.reservation-section {
-    background-color: var(--dark-wood);
-    color: white;
-    padding: 50px 5%;
-    text-align: center;
-}
-
+/* Tady jsem smazal ty tmavé sekce, aby to vypadalo jako dřív */
 #reservation-form {
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 600px;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
 }
 
-#reservation-form input, 
-#reservation-form select {
-    padding: 12px;
-    border-radius: 5px;
-    border: none;
-}
-
-#reservation-form button {
-    background-color: var(--accent-gold);
-    color: var(--dark-wood);
-    font-weight: bold;
-    padding: 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-transform: uppercase;
+.faq-section {
+    padding: 20px;
 }
 
 /* =========================================
-   FOOTER (OPRAVA PRO MOBILY)
+   FOOTER - OPRAVA NA KONEC
    ========================================= */
 footer {
     width: 100%;
-    margin-top: auto;
     background-color: var(--dark-wood);
     color: white;
     text-align: center;
-    padding: 30px 0;
-}
-
-footer p {
-    margin: 0;
-    font-size: 0.9rem;
+    padding: 20px 0;
+    /* Odebral jsem margin-top: auto, aby to neposouvalo web, pokud to nechceš */
 }
