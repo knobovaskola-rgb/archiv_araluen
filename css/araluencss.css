@@ -22,6 +22,10 @@ body {
     padding: 0;
     overflow-x: hidden;
     scroll-behavior: smooth;
+    min-height: 100vh; 
+    min-height: 100dvh; 
+    display: flex;
+    flex-direction: column;
 }
 
 body {
@@ -29,6 +33,11 @@ body {
     background-color: var(--background-paper);
     color: var(--text-color);
     line-height: 1.6;
+}
+
+body > main, 
+body > section:first-of-type {
+    flex: 1;
 }
 
 img {
@@ -295,10 +304,21 @@ a:hover {
 
 .grid-wrapper {
     display: grid;
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 20px;
+    padding: 20px;
+}
 
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+@media (max-width: 1024px) {
+    .grid-wrapper {
+        grid-template-columns: repeat(2, 1fr); /* 2 vedle sebe na tabletu */
+    }
+}
 
-    gap: 30px;
+@media (max-width: 600px) {
+    .grid-wrapper {
+        grid-template-columns: 1fr; /* 1 pod sebou na malém mobilu */
+    }
 }
 
 .karta {
@@ -531,14 +551,11 @@ summary {
 
 footer {
     background: var(--dark-wood);
-
     color: white;
-
     text-align: center;
-
     padding: 40px 20px;
-
-    margin-top: 50px;
+    margin-top: auto; /* Důležité: odtlačí footer dolů v rámci flexu */
+    width: 100%;
 }
 
 footer a {
