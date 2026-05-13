@@ -13,45 +13,58 @@ if (burger && nav) {
 // ==========================
 // COUNTDOWN
 // ==========================
-const countdown = document.getElementById("countdown");
+const countdownElement = document.getElementById("countdown");
+const messageElement = document.getElementById('countdown-message');
+const timerWrapper = document.querySelector('.timer'); // Abychom mohli schovat celý rámeček
 
-if (countdown) {
+if (countdownElement) {
     // Tady si nastavuješ datum konce odpočtu
     const targetDate = new Date("June 30, 2026 10:00:00").getTime();
 
-    function updateCountdown() {
+    const timerInterval = setInterval(function updateCountdown() {
         const now = new Date().getTime();
         const diff = targetDate - now;
 
+        // Pokud odpočet vypršel
         if (diff <= 0) {
-            countdown.innerHTML = "Výstava právě začala!";
+            clearInterval(timerInterval);
+            
+            // Schováme starý časovač
+            if (timerWrapper) timerWrapper.style.display = "none";
+            if (countdownElement) countdownElement.style.display = "none";
+            
+            // Ukážeme novou zprávu (pokud existuje v HTML)
+            if (messageElement) {
+                messageElement.style.display = "inline-block";
+                messageElement.innerHTML = "Výstava právě začala!";
+            } else {
+                // Záložní řešení, pokud by messageElement v HTML chyběl
+                countdownElement.style.display = "block";
+                countdownElement.innerHTML = "Výstava právě začala!";
+            }
             return;
         }
 
+        // Výpočet času
         const d = Math.floor(diff / (1000 * 60 * 60 * 24));
         const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
         const m = Math.floor((diff / (1000 * 60)) % 60);
         const s = Math.floor((diff / 1000) % 60);
 
-        countdown.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
-    }
+        // Vypsání do HTML
+        countdownElement.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+    }, 1000);
 
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
+    // Spustíme hned poprvé, aby tam vteřinu nesvítilo prázdno
+    const initialDiff = targetDate - new Date().getTime();
+    if (initialDiff > 0) {
+        const d = Math.floor(initialDiff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((initialDiff / (1000 * 60 * 60)) % 24);
+        const m = Math.floor((initialDiff / (1000 * 60)) % 60);
+        const s = Math.floor((initialDiff / 1000) % 60);
+        countdownElement.innerHTML = `${d}d ${h}h ${m}m ${s}s`;
+    }
 }
-
-const timerElement = document.querySelector('.timer');
-const messageElement = document.getElementById('countdown-message');
-
-const countdown = setInterval(() => {
-
-    if (distance < 0) {
-        clearInterval(countdown);
-        timerElement.style.display = "none";
-        messageElement.style.display = "inline-block";
-    }
-}, 1000);
-
 // ==========================
 // CAROUSEL
 // ==========================
