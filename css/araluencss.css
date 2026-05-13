@@ -512,16 +512,15 @@ summary {
 
 .map-wrapper iframe {
     display: block;
-    width: 100%; 
-    max-width: 900px; 
-    height: 450px;  
+    width: 100%;
+    max-width: 50vw; 
+    height: 400px; 
     
     margin: 0 auto;
     border: none;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
-
 /* =========================
    FOOTER
 ========================= */
