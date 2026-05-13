@@ -1,6 +1,6 @@
-/* =========================
-   GLOBÁLNÍ STYLY
-========================= */
+/* =========================================
+   GLOBÁLNÍ STYLY A PROMĚNNÉ
+   ========================================= */
 :root {
     --primary-green: #2d3e2e;
     --accent-gold: #c5a059;
@@ -9,9 +9,7 @@
     --text-color: #333;
 }
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -19,7 +17,7 @@ html, body {
     width: 100%;
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Proti přetékání na mobilech */
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -36,9 +34,9 @@ h1, h2, h3 {
     text-align: center;
 }
 
-/* =========================
+/* =========================================
    NAVBAR (FIXNÍ + VYCENTROVANÝ NÁZEV)
-========================= */
+   ========================================= */
 .navbar {
     position: fixed;
     top: 0;
@@ -58,14 +56,14 @@ h1, h2, h3 {
     height: 70px;
 }
 
-/* Název Archiv Araluenu - Větší a přesně uprostřed */
+/* Název Archiv Araluenu - Větší a uprostřed */
 .navbar h2 {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     margin: 0;
     color: var(--accent-gold);
-    font-size: 2.8rem; /* Pořádně zvětšeno */
+    font-size: 2.8rem;
     white-space: nowrap;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
@@ -100,9 +98,9 @@ h1, h2, h3 {
     margin: 5px;
 }
 
-/* =========================
+/* =========================================
    HERO SEKCE
-========================= */
+   ========================================= */
 .hero {
     background:
         linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
@@ -113,12 +111,13 @@ h1, h2, h3 {
     align-items: center;
     color: white;
     text-align: center;
-    margin-top: 90px; /* Odsazení kvůli fixnímu navbaru */
+    margin-top: 90px; /* Mezera kvůli fixnímu menu */
 }
 
 .hero h1 {
     font-size: 3rem;
     color: white;
+    margin-bottom: 10px;
 }
 
 .timer {
@@ -126,28 +125,40 @@ h1, h2, h3 {
     color: var(--accent-gold);
     border: 2px solid var(--accent-gold);
     padding: 10px 20px;
+    display: inline-block;
 }
 
-/* =========================
+/* =========================================
    CAROUSEL
-========================= */
+   ========================================= */
 .carousel-section {
-    padding: 40px 0;
+    padding: 60px 0;
+}
+
+.mistnosti-text {
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: 'Cinzel', serif;
+    color: var(--dark-wood);
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
 .carousel-container {
     position: relative;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
     aspect-ratio: 1 / 1;
     overflow: hidden;
-    border: 3px solid var(--dark-wood);
+    border: 5px solid var(--dark-wood);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
 }
 
 .carousel-slide {
     display: flex;
     height: 100%;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide img {
@@ -163,38 +174,35 @@ h1, h2, h3 {
     background: rgba(45, 62, 46, 0.9);
     color: white;
     border: none;
-    width: 45px;
-    height: 45px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
+    font-size: 20px;
     cursor: pointer;
     z-index: 10;
+    transition: 0.3s;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
-
-/* Nápis pod/nad místnostmi */
-.mistnosti-text {
-    text-align: center;
-    font-size: 2.5rem;
-    font-family: 'Cinzel', serif;
-    color: var(--dark-wood);
-    margin: 40px 0;
-    font-weight: bold;
-    text-transform: uppercase;
+.prev:hover, .next:hover {
+    background: var(--accent-gold);
 }
 
-/* =========================
+.prev { left: 15px; }
+.next { right: 15px; }
+
+/* =========================================
    EXPOZICE (VZÁCNÉ EXPONÁTY)
-========================= */
+   ========================================= */
 .expozice-grid {
-    padding: 50px 5%;
+    padding: 60px 5%;
 }
 
 .grid-wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .exponat {
@@ -202,8 +210,13 @@ h1, h2, h3 {
     border-radius: 8px;
     overflow: hidden;
     text-align: center;
-    padding-bottom: 15px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding-bottom: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.exponat:hover {
+    transform: translateY(-5px);
 }
 
 .exponat img {
@@ -211,121 +224,154 @@ h1, h2, h3 {
     height: 250px;
     object-fit: contain;
     background: #f9f9f9;
-    padding: 15px;
-    border-radius: 8px 8px 0 0; 
+    padding: 25px; /* Mezera nad a kolem obrázku */
 }
 
-/* =========================
+.exponat h3 {
+    margin: 15px 0 5px;
+    color: var(--primary-green);
+}
+
+/* =========================================
    REZERVAČNÍ FORMULÁŘ
-========================= */
+   ========================================= */
 .booking-section {
     background: white;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
 }
 
 .form-row {
     display: flex;
-    gap: 10px;
-    margin-bottom: 10px;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-row label {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
 }
 
 input, select {
     width: 100%;
     padding: 12px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+    margin-top: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: 'Lora', serif;
 }
 
 .btn-rezervace {
     width: 100%;
     background: var(--primary-green);
     color: white;
-    padding: 15px;
+    padding: 18px;
     border: none;
+    border-radius: 5px;
     cursor: pointer;
     font-weight: bold;
     font-family: 'Cinzel', serif;
+    font-size: 1.2rem;
+    margin-top: 20px;
+    transition: 0.3s;
 }
 
-/* =========================
+.btn-rezervace:hover {
+    background: var(--dark-wood);
+    color: var(--accent-gold);
+}
+
+/* =========================================
    FAQ
-========================= */
+   ========================================= */
 #faq {
     max-width: 800px;
-    margin: 40px auto;
+    margin: 60px auto;
     padding: 0 20px;
 }
 
 details {
     background: white;
-    margin-bottom: 10px;
-    padding: 15px;
-    border-radius: 5px;
+    margin-bottom: 15px;
+    padding: 20px;
+    border-radius: 8px;
     cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
 }
 
-/* =========================
+summary {
+    font-weight: bold;
+    font-family: 'Cinzel', serif;
+    color: var(--dark-wood);
+}
+
+/* =========================================
    MAPA A SKORO NEČITELNÝ TEXT
-========================= */
-.map-placeholder {
-    width: 90%;
+   ========================================= */
+.map-wrapper {
+    width: 95%;
     max-width: 1100px;
-    height: 600px; /* Velká mapa */
-    margin: 50px auto;
-    border: 4px solid var(--dark-wood);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-
-.map-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-/* Skoro nečitelný text */
-.tiny-text {
+    margin: 60px auto;
     text-align: center;
-    font-size: 0.55rem;
-    color: rgba(75, 54, 33, 0.3);
+}
+
+iframe {
+    width: 100%;
+    height: 550px;
+    border: 5px solid var(--dark-wood) !important;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.map-text {
+    font-size: 0.55rem; /* Téměř nečitelné */
+    color: rgba(75, 54, 33, 0.3); /* Skoro průhledné */
     letter-spacing: -0.8px;
-    margin-bottom: 20px;
+    margin-top: 20px;
     user-select: none;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* =========================================
+   FOOTER (ZLATÝ EMAIL)
+   ========================================= */
 footer {
     background: var(--dark-wood);
-    color: white;
+    color: #f1f1f1;
     text-align: center;
-    padding: 30px;
+    padding: 50px 20px;
     margin-top: auto;
     width: 100%;
 }
+
+footer h3 {
+    color: white;
+    margin-bottom: 15px;
+}
+
 footer a {
     color: var(--accent-gold);
-    text-decoration: none;     
+    text-decoration: none;
+    font-weight: bold;
     transition: 0.3s;
 }
 
 footer a:hover {
-    color: white;              
-    text-decoration: underline; 
+    color: white;
+    text-decoration: underline;
 }
 
-/* =========================
+/* =========================================
    RESPONSIVE (MOBILY)
-========================= */
+   ========================================= */
 @media (max-width: 768px) {
     .navbar {
         flex-direction: column;
-        padding: 10px;
+        padding: 15px;
         min-height: auto;
     }
 
@@ -333,20 +379,24 @@ footer a:hover {
         position: static;
         transform: none;
         left: auto;
-        font-size: 1.6rem;
-        margin: 10px 0;
+        font-size: 1.8rem;
+        margin: 15px 0;
+    }
+
+    .hero {
+        margin-top: 150px; /* Aby se nápis na mobilu neplýtval */
     }
 
     .nav-links {
         display: none;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        padding-bottom: 10px;
     }
 
     .nav-links.active {
         display: flex;
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
     }
 
     .burger {
@@ -361,7 +411,7 @@ footer a:hover {
         font-size: 1.8rem;
     }
 
-    .map-placeholder {
+    iframe {
         height: 350px;
     }
 }
