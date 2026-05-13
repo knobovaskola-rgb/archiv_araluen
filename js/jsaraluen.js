@@ -40,6 +40,18 @@ if (countdown) {
     setInterval(updateCountdown, 1000);
 }
 
+const timerElement = document.querySelector('.timer');
+const messageElement = document.getElementById('countdown-message');
+
+const countdown = setInterval(() => {
+
+    if (distance < 0) {
+        clearInterval(countdown);
+        timerElement.style.display = "none";
+        messageElement.style.display = "inline-block";
+    }
+}, 1000);
+
 // ==========================
 // CAROUSEL
 // ==========================
