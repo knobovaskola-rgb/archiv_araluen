@@ -16,6 +16,7 @@ if (burger && nav) {
 const countdown = document.getElementById("countdown");
 
 if (countdown) {
+    // Tady si nastavuješ datum konce odpočtu
     const targetDate = new Date("June 30, 2026 10:00:00").getTime();
 
     function updateCountdown() {
@@ -81,25 +82,20 @@ async function nactiExpozici() {
     if (!container) return;
 
     try {
-        // Cesta k souboru (přidáno ./ pro lepší kompatibilitu s GitHubem)
         const response = await fetch('./data/expozice.csv');
         if (!response.ok) throw new Error('Soubor expozice.csv nebyl nalezen');
         
         const textData = await response.text();
-        
-        // Rozdělení na řádky a odstranění prázdných řádků
         const radky = textData.split('\n').filter(line => line.trim() !== '');
         
         let htmlObsah = '';
 
         radky.forEach((radek, index) => {
-            // Přeskočíme první řádek (hlavičku: Název;Popis;Obrázek)
+            // Přeskakujeme první řádek (pokud máš v CSV hlavičku)
             if (index === 0) return;
 
-            // Rozdělení podle středníku
             const sloupce = radek.split(';');
             
-            // Musíme mít alespoň 3 sloupce (Název, Popis, Obrázek)
             if (sloupce.length >= 3) {
                 const nazev = sloupce[0].trim();
                 const popis = sloupce[1].trim();
@@ -107,7 +103,7 @@ async function nactiExpozici() {
                 
                 htmlObsah += `
                     <div class="exponat">
-                        <img src="./img/${obrazek}" alt="${nazev}" style="width:100%; border-radius:8px; margin-bottom:10px;">
+                        <img src="./img/${obrazek}" alt="${nazev}" style="width:100%; border-radius:8px; margin-bottom:10px; height: 250px; object-fit: contain;">
                         <h3>${nazev}</h3>
                         <p>${popis}</p>
                     </div>
@@ -115,11 +111,7 @@ async function nactiExpozici() {
             }
         });
 
-        if (htmlObsah === '') {
-            container.innerHTML = '<p>Žádné exponáty k zobrazení.</p>';
-        } else {
-            container.innerHTML = htmlObsah;
-        }
+        container.innerHTML = htmlObsah || '<p>Žádné exponáty k zobrazení.</p>';
 
     } catch (error) {
         console.error('Chyba při načítání exponátů:', error);
@@ -130,8 +122,6 @@ async function nactiExpozici() {
 // Spuštění po načtení DOMu
 document.addEventListener('DOMContentLoaded', () => {
     nactiExpozici();
-    
-    // Smooth scroll a validace zůstávají zde
     initOstatniFunkce();
 });
 
@@ -139,23 +129,29 @@ document.addEventListener('DOMContentLoaded', () => {
 // OSTATNÍ FUNKCE (Smooth Scroll & Form)
 // ==========================
 function initOstatniFunkce() {
-    // Form validace
+    // --- FORM VALIDACE ---
     const form = document.getElementById("reservation-form");
     if (form) {
         form.addEventListener("submit", (e) => {
-            const date = form.querySelector("input[name='datum']").value;
-            const time = form.querySelector("input[name='cas']").value;
-            const people = form.querySelector("input[name='osob']").value;
-            const email = form.querySelector("input[name='email']").value;
+            // Získání hodnot ze všech polí
+            const date = form.querySelector("input[name='datum']").value.trim();
+            const time = form.querySelector("input[name='cas']").value.trim();
+            const people = form.querySelector("input[name='osob']").value.trim();
+            const email = form.querySelector("input[name='email']").value.trim();
+            
+            // Kontrola selectu (pokud ho tam máš)
+            const typeSelect = form.querySelector("select[name='typ']");
+            const type = typeSelect ? typeSelect.value : "ok";
 
-            if (!date || !time || people < 1 || !email) {
-                e.preventDefault();
-                alert("Prosím vyplňte všechny údaje správně.");
+            // PŘÍSNÁ KONTROLA: Pokud je cokoli prázdné nebo počet osob menší než 1
+            if (!date || !time || !people || !email || type === "" || people < 1) {
+                e.preventDefault(); // Zastaví odeslání
+                alert("Musíte vyplnit celý dotazník."); // Tvoje hláška
             }
         });
     }
 
-    // Smooth Scroll
+    // --- SMOOTH SCROLL ---
     const links = document.querySelectorAll('a[href^="#"]');
     links.forEach(link => {
         link.addEventListener("click", function(e) {
