@@ -511,94 +511,6 @@ summary {
     cursor: pointer;
     font-weight: bold;
 }
-
-/* =========================
-   RECENZE
-========================= */
-
-#recenze {
-    padding: 100px 20px;
-    background: var(--dark-wood); /* Tmavé pozadí pro maximální kontrast */
-    color: #fdf6e3; /* Barva slonové kosti pro text */
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-}
-
-/* Dekorativní linky nad a pod nadpisem */
-#recenze h2 {
-    color: var(--accent-gold);
-    margin-bottom: 50px;
-}
-
-#recenze h2::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--accent-gold);
-    margin: 15px auto;
-}
-
-.reviews-grid {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center; /* Vycentrování karet */
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.review-card {
-    background: rgba(255, 255, 255, 0.05); /* Velmi jemné prosvítání */
-    padding: 40px;
-    border-radius: 2px; /* Ostré, elegantní rohy */
-    border: 1px solid rgba(197, 160, 89, 0.3); /* Jemný zlatý rámeček */
-    flex: 1 1 300px;
-    max-width: 350px;
-    position: relative;
-    transition: all 0.4s ease;
-}
-
-.review-card p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    font-style: italic;
-    margin-bottom: 30px;
-}
-
-/* Stylování jména s linkou */
-.review-card span {
-    display: block;
-    font-family: 'Cinzel', serif;
-    color: var(--accent-gold);
-    letter-spacing: 2px;
-    font-size: 0.8rem;
-}
-
-/* Velká uvozovka v pozadí */
-.review-card::before {
-    content: "“";
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    font-size: 6rem;
-    color: var(--accent-gold);
-    opacity: 0.15;
-}
-
-/* Responzivita: Na mobilu se karty seřadí pod sebe a vycentrují */
-@media (max-width: 768px) {
-    .reviews-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .review-card {
-        width: 100%;
-        max-width: 90%;
-    }
-}
 /* =========================
    MAPA
 ========================= */
@@ -626,6 +538,90 @@ summary {
     border: none;
     border-radius: 12px;
     box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* =========================
+   RECENZE
+========================= */
+
+#recenze {
+    padding: 100px 20px;
+    background: var(--dark-wood); 
+    color: #fdf6e3; 
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+#recenze h2 {
+    color: var(--accent-gold);
+    margin-bottom: 50px;
+}
+
+#recenze h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-gold);
+    margin: 15px auto;
+}
+
+.reviews-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.review-card {
+    background: rgba(255, 255, 255, 0.05); 
+    padding: 40px;
+    border-radius: 2px; 
+    border: 1px solid rgba(197, 160, 89, 0.3); 
+    flex: 1 1 300px;
+    max-width: 350px;
+    position: relative;
+    /* transition a transform byly odstraněny */
+}
+
+.review-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.review-card span {
+    display: block;
+    font-family: 'Cinzel', serif;
+    color: var(--accent-gold);
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+}
+
+.review-card::before {
+    content: "“";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 6rem;
+    color: var(--accent-gold);
+    opacity: 0.15;
+}
+
+@media (max-width: 768px) {
+    .reviews-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .review-card {
+        width: 100%;
+        max-width: 90%;
+    }
 }
 /* =========================
    FOOTER
