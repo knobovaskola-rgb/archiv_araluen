@@ -463,7 +463,7 @@ summary {
 ========================= */
 
 footer {
-    background-color: #4a321f; /* Hnědá barva pozadí */
+    background-color: var(--dark-wood);
     color: white;
     padding: 40px 20px;
     font-family: serif;
