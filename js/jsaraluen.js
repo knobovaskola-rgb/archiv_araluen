@@ -178,22 +178,20 @@ function initOstatniFunkce() {
 
     // --- SMOOTH SCROLL ---
     const links = document.querySelectorAll('a[href^="#"]');
-    links.forEach(link => {
-        link.addEventListener("click", function(e) {
-            const href = this.getAttribute("href");
-            if (href === "#") return;
-            const target = document.querySelector(href);
+links.forEach(link => {
+    link.addEventListener("click", function(e) {
+        const href = this.getAttribute("href");
+        const target = document.querySelector(href);
 
-            if (target) {
-                e.preventDefault();
-                const offset = 80;
-                const position = target.offsetTop - offset;
+        if (target) {
+            e.preventDefault();
+            const offset = 80; // úprava podle potřeby
+            const position = target.offsetTop - offset;
 
-                window.scrollTo({
-                    top: position,
-                    behavior: "smooth"
-                });
-            }
-        });
+            window.scrollTo({
+                top: position,
+                behavior: "smooth" // plynulý posun
+            });
+        }
     });
-}
+});
