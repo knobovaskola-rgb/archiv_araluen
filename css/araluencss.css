@@ -541,94 +541,94 @@ summary {
 }
 
 /* =========================
-   RECENZE - EXKLUZIVNÍ STYL
+   RECENZE - FINÁLNÍ VZHLED (PODLE SCREENSHOTU)
 ========================= */
 
 #recenze {
     padding: 100px 20px;
-    background: var(--dark-wood); /* Tmavé pozadí pro maximální kontrast */
-    color: #fdf6e3; /* Barva slonové kosti pro text */
+    background-color: var(--dark-wood); /* Tmavě hnědé pozadí */
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    width: 100%;
 }
 
-/* Dekorativní linky nad a pod nadpisem */
 #recenze h2 {
     color: var(--accent-gold);
-    margin-bottom: 50px;
+    font-family: 'Cinzel', serif;
+    font-size: 2rem;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 3px;
 }
 
+/* Zlatá linka pod nadpisem */
 #recenze h2::after {
     content: '';
     display: block;
     width: 60px;
-    height: 3px;
+    height: 2px;
     background: var(--accent-gold);
-    margin: 15px auto;
+    margin: 25px auto 0;
 }
 
 .reviews-grid {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    justify-content: center; /* Vycentrování karet */
-    gap: 40px;
+    gap: 25px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 60px auto 0;
 }
 
 .review-card {
-    background: rgba(255, 255, 255, 0.05); /* Velmi jemné prosvítání */
-    padding: 40px;
-    border-radius: 2px; /* Ostré, elegantní rohy */
-    border: 1px solid rgba(197, 160, 89, 0.3); /* Jemný zlatý rámeček */
-    flex: 1 1 300px;
-    max-width: 350px;
+    background: rgba(255, 255, 255, 0.03); /* Velmi jemné prosvítání */
+    padding: 40px 30px;
+    border: 1px solid rgba(197, 160, 89, 0.2); /* Tenký zlatý rámeček */
+    border-radius: 4px;
+    
+    flex: 1 1 320px;
+    max-width: 380px;
+    
+    text-align: left;
     position: relative;
-    transition: all 0.4s ease;
+
+    /* Úplný klid - žádný pohyb */
+    transition: none !important;
+    transform: none !important;
+    cursor: default;
 }
 
-/* Efekt při najetí - karta se "rozsvítí" */
+/* Vypnutí všech efektů po najetí myší */
 .review-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-gold);
-    transform: scale(1.05);
+    transform: none !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-color: rgba(197, 160, 89, 0.2) !important;
+    box-shadow: none !important;
 }
 
 .review-card p {
-    font-size: 1.1rem;
-    line-height: 1.8;
+    color: #f4e4bc; /* Slonová kost / barva papíru */
+    font-family: 'Lora', serif;
     font-style: italic;
-    margin-bottom: 30px;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    margin-bottom: 25px;
 }
 
-/* Stylování jména s linkou */
 .review-card span {
-    display: block;
+    color: var(--accent-gold);
     font-family: 'Cinzel', serif;
-    color: var(--accent-gold);
-    letter-spacing: 2px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: block;
 }
 
-/* Velká uvozovka v pozadí */
-.review-card::before {
-    content: "“";
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    font-size: 6rem;
-    color: var(--accent-gold);
-    opacity: 0.15;
-}
-
-/* Responzivita: Na mobilu se karty seřadí pod sebe a vycentrují */
+/* Úprava pro menší obrazovky (responzivita) */
 @media (max-width: 768px) {
     .reviews-grid {
         flex-direction: column;
         align-items: center;
     }
-    
     .review-card {
         width: 100%;
         max-width: 90%;
