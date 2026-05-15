@@ -512,151 +512,170 @@ summary {
     font-weight: bold;
 
 /* =========================
-   RECENZE -
+   RECENZE
 ========================= */
 
 #recenze {
+    background-color: #4b2e1e;
     padding: 100px 20px;
-    background-color: var(--dark-wood); /* Tmavě hnědé pozadí */
     text-align: center;
-    width: 100%;
 }
 
 #recenze h2 {
-    color: var(--accent-gold);
+    color: #d4a64f;
     font-family: 'Cinzel', serif;
-    font-size: 2rem;
-    margin-bottom: 10px;
+    font-size: 3rem;
     text-transform: uppercase;
-    letter-spacing: 3px;
+    margin-bottom: 20px;
 }
 
-/* Zlatá linka pod nadpisem */
 #recenze h2::after {
-    content: '';
+    content: "";
     display: block;
     width: 60px;
-    height: 2px;
-    background: var(--accent-gold);
-    margin: 25px auto 0;
+    height: 3px;
+    background: #d4a64f;
+    margin: 20px auto 0;
 }
 
 .reviews-grid {
     display: flex;
     justify-content: center;
+    gap: 30px;
     flex-wrap: wrap;
-    gap: 25px;
-    max-width: 1200px;
-    margin: 60px auto 0;
+    margin-top: 70px;
 }
 
 .review-card {
-    background: rgba(255, 255, 255, 0.03); /* Velmi jemné prosvítání */
-    padding: 40px 30px;
-    border: 1px solid rgba(197, 160, 89, 0.2); /* Tenký zlatý rámeček */
-    border-radius: 4px;
-    
-    flex: 1 1 320px;
-    max-width: 380px;
-    
+    width: 350px;
+    padding: 40px 35px;
+    border: 1px solid rgba(212, 166, 79, 0.3);
+    background: rgba(255,255,255,0.03);
     text-align: left;
-    position: relative;
-
-    /* Úplný klid - žádný pohyb */
-    transition: none !important;
-    transform: none !important;
-    cursor: default;
-}
-
-/* Vypnutí všech efektů po najetí myší */
-.review-card:hover {
-    transform: none !important;
-    background: rgba(255, 255, 255, 0.03) !important;
-    border-color: rgba(197, 160, 89, 0.2) !important;
-    box-shadow: none !important;
 }
 
 .review-card p {
-    color: #f4e4bc; /* Slonová kost / barva papíru */
-    font-family: 'Lora', serif;
+    color: #f4e4bc;
+    font-size: 1.3rem;
+    line-height: 1.8;
     font-style: italic;
-    font-size: 1.05rem;
-    line-height: 1.7;
-    margin-bottom: 25px;
 }
 
 .review-card span {
-    color: var(--accent-gold);
-    font-family: 'Cinzel', serif;
-    font-size: 0.85rem;
-    text-transform: uppercase;
-    letter-spacing: 1px;
     display: block;
+    margin-top: 30px;
+    color: #d4a64f;
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    text-transform: uppercase;
 }
 
-/* Úprava pro menší obrazovky (responzivita) */
-@media (max-width: 768px) {
-    .reviews-grid {
-        flex-direction: column;
-        align-items: center;
-    }
-    .review-card {
-        width: 100%;
-        max-width: 90%;
-    }
-}
-.footer {
+/* =========================
+   FOOTER
+========================= */
+
+footer {
     background-color: #4b2e1e;
     color: white;
-    padding: 40px 80px;
-    font-family: serif;
+    padding: 70px 80px 30px;
 }
 
-.footer-top {
+.footer-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 60px;
+    gap: 80px;
 }
 
-.footer-container{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:80px;
+/* LEVÁ STRANA */
+.footer-map-section {
+    flex: 1;
 }
 
-/* LEVÁ STRANA - TEXT */
-.footer-map-section{
-    flex:1;
-    text-align:left;
+.map-subtext {
+    color: white;
+    font-size: 1.8rem;
+    line-height: 1.7;
+    max-width: 650px;
 }
 
-.map-subtext{
-    font-size:28px;
-    line-height:1.5;
-    max-width:600px;
+/* PRAVÁ STRANA */
+.footer-contacts {
+    flex: 1;
+    text-align: center;
 }
 
-/* PRAVÁ STRANA - KONTAKT */
-.footer-contacts{
-    flex:1;
-    text-align:center;
+.footer-contacts h3 {
+    color: #d4a64f;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    font-family: 'Cinzel', serif;
 }
 
-.footer-map-wrapper{
-    margin-top:20px;
+.footer-contacts p {
+    margin: 12px 0;
+    font-size: 1.2rem;
 }
 
-.footer-map-wrapper iframe{
-    width:300px;
-    height:180px;
-    border:0;
+.footer-contacts a {
+    color: #d4a64f;
 }
 
-.footer-bottom{
-    text-align:center;
-    margin-top:40px;
+.social-links {
+    margin: 20px 0;
+}
+
+.footer-map-wrapper {
+    margin-top: 25px;
+}
+
+.footer-map-wrapper iframe {
+    width: 320px;
+    height: 200px;
+    border: 0;
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 25px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+.footer-bottom p {
+    margin: 0;
+    font-size: 1rem;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-map-section {
+        order: 2;
+    }
+
+    .footer-contacts {
+        order: 1;
+    }
+
+    .map-subtext {
+        font-size: 1.3rem;
+    }
+
+    .review-card {
+        width: 100%;
+        max-width: 500px;
+    }
+
 }
 /* =========================
    RESPONSIVE
