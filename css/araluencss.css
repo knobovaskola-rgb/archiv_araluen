@@ -123,10 +123,10 @@ a {
     text-align: center;
     padding: 120px 20px 80px;
 
-  
-    background: 
-       rgba(10, 10, 10, 0.95) 
-        
+    /* OPRAVA: Použijeme čistou barvu místo kombinace s obrázkem */
+    background-color: #0a0a0a; 
+    
+    /* Tyto řádky už bez obrázku nejsou potřeba, ale ničemu nevadí */
     background-size: cover;
     background-position: center;
 }
@@ -145,28 +145,13 @@ a {
 .timer {
     margin-top: 30px;   
     padding: 15px 20px;
-
     border: 2px solid var(--accent-gold);
-
     color: var(--accent-gold);
-
     display: inline-block;
-
     font-size: 2rem;
     font-weight: bold;
-
+    /* Pozadí pod samotnými čísly odpočtu */
     background: rgba(0, 0, 0, 0.8);
-}
-
-#countdown-message {
-    display: none;
-
-    margin-top: 20px;
-
-    color: white;
-
-    font-size: 2rem;
-    font-family: 'Cinzel', serif;
 }
 
 /* =========================
