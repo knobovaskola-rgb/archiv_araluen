@@ -288,16 +288,12 @@ a {
 }
 
 .premieres-title {
-    /* Absolutní vycentrování nadpisu */
     text-align: center;
-    width: 100%;
-    
     font-family: 'Cinzel', serif;
-    /* Použijte svou proměnnou pro tmavé dřevo nebo konkrétní barvu */
-    color: #2d3e2e; 
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    letter-spacing: 2px;
+    /* Používáme stejnou tmavou barvu jako u ostatních nadpisů */
+    color: var(--dark-wood); 
+    font-size: 2.2rem;
+    margin-bottom: 30px;
 }
 
 .wide-carousel-container {
