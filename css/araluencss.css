@@ -470,36 +470,45 @@ footer {
 }
 
 .footer-container {
-    /* KLÍČOVÁ ZMĚNA: Nastavení šířky a vycentrování */
-    max-width: 1000px;    /* Čím menší číslo, tím blíž u sebe prvky budou */
-    margin: 0 auto;       /* Vycentruje celý kontejner na střed stránky */
+    max-width: 1000px;   
+    margin: 0 auto;   
     
     display: flex;
-    justify-content: space-between; /* Rozmístí text vlevo a mapu vpravo v rámci těch 1000px */
+    justify-content: space-between;
     align-items: flex-start;
-    gap: 40px;            /* Minimální mezera mezi textem a mapou */
+    gap: 40px;        
 }
 
 .footer-map-section, .footer-contacts {
-    flex: 1;              /* Rozdělí prostor rovnoměrně */
+    flex: 1;            
 }
 
-/* Styl pro mapu, aby nepřetékala */
 .footer-map-wrapper iframe {
     width: 100%;
     height: 200px;
     border: none;
 }
 
-/* Spodní řádek s copyrightem */
 .footer-bottom {
     text-align: center;
     margin-top: 30px;
     border-top: 1px solid rgba(255,255,255,0.1);
     padding-top: 20px;
 }
+footer a {
+    color: #c5a059; 
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
 
-/* Responzivita: na mobilu se dají pod sebe */
+footer a:hover {
+    color: #e2c285;
+    text-decoration: underline;
+}
+
+.social-links {
+    color: #c5a059;
+}
 @media (max-width: 768px) {
     .footer-container {
         flex-direction: column;
