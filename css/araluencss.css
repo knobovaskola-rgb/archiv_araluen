@@ -480,7 +480,10 @@ footer {
 }
 
 .footer-map-section, .footer-contacts {
-    flex: 1;            
+   display: flex;
+    flex-direction: column;
+    align-items: center;    /* Vycentruje mapu i text pod ní */
+    text-align: center;
 }
 
 .footer-map-wrapper iframe {
