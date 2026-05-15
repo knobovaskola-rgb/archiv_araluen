@@ -560,13 +560,6 @@ summary {
     transition: all 0.4s ease;
 }
 
-/* Efekt při najetí - karta se "rozsvítí" */
-.review-card:hover {
-    background: rgba(255, 255, 255, 0.1);
-    border-color: var(--accent-gold);
-    transform: scale(1.05);
-}
-
 .review-card p {
     font-size: 1.1rem;
     line-height: 1.8;
