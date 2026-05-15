@@ -146,7 +146,7 @@ a {
     font-size: 2rem;
     font-weight: bold;
     /* Pozadí pod samotnými čísly odpočtu */
-    background: rgba(0, 0, 0, 0.8);
+    background: var(--dark-wood);
 }
 
 /* =========================
