@@ -319,22 +319,30 @@ a {
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 30px;
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    
+    padding: 60px 30px 30px; 
+    
+    background: linear-gradient(to top, 
+        rgba(0, 0, 0, 0.85) 0%,   
+        rgba(0, 0, 0, 0.4) 50%,  
+        rgba(0, 0, 0, 0) 100%     
+    );
+    
     color: white;
     text-align: left;
 }
-
 .carousel-text-overlay h3 {
     margin: 0;
     font-family: 'Cinzel', serif;
-    font-size: 1.8rem;
-    color: #c5a059; 
+    color: #c5a059;
+    font-size: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
 }
 
 .carousel-text-overlay p {
     margin: 5px 0 0;
     font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 .carousel-btn {
     position: absolute;
