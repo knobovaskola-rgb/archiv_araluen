@@ -513,6 +513,85 @@ summary {
 }
 
 /* =========================
+   RECENZE
+========================= */
+
+#recenze {
+    padding: 60px 5%;
+    background-color: rgba(255, 255, 255, 0.3); /* Jemné odlišení od pozadí papíru */
+}
+
+.reviews-grid {
+    display: grid;
+    /* Responzivita: 1 sloupec na mobilu, 2 na tabletu, 3 na PC */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 40px auto 0;
+}
+
+.review-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+    border-left: 5px solid var(--accent-gold); /* Zlatý detail na straně */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.review-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+/* Stylování uvozovek jako dekorace */
+.review-card::before {
+    content: "“";
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-size: 5rem;
+    color: var(--accent-gold);
+    opacity: 0.2;
+    font-family: 'serif';
+    line-height: 1;
+}
+
+.review-card p {
+    font-style: italic;
+    color: var(--text-color);
+    line-height: 1.6;
+    margin-bottom: 20px;
+    z-index: 1; /* Aby text byl nad uvozovkou */
+}
+
+.review-card span {
+    display: block;
+    font-family: 'Cinzel', serif;
+    color: var(--dark-wood);
+    font-weight: bold;
+    font-size: 0.9rem;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Úprava pro mobilní zařízení */
+@media (max-width: 576px) {
+    .review-card {
+        padding: 20px;
+    }
+    
+    #recenze h2 {
+        font-size: 1.8rem;
+    }
+}
+
+/* =========================
    MAPA
 ========================= */
 
