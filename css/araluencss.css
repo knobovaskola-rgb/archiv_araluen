@@ -280,17 +280,17 @@ a {
 }
 
 /* =========================
-   VYSTAVA
+    VYSTAVA
 ========================= */
 
 #premiere-carousel-section {
     padding: 40px 0;
+    background-color: transparent; 
 }
 
 .premieres-title {
     text-align: center;
     font-family: 'Cinzel', serif;
-    /* Používáme stejnou tmavou barvu jako u ostatních nadpisů */
     color: var(--dark-wood); 
     font-size: 2.2rem;
     margin-bottom: 30px;
@@ -298,7 +298,7 @@ a {
 
 .wide-carousel-container {
     position: relative;
-    max-width: 1100px; /* Můžeš upravit podle potřeby */
+    max-width: 1100px;
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -307,20 +307,50 @@ a {
 .wide-carousel-viewport {
     overflow: hidden;
     width: 100%;
-    /* Odstranění stínu, pokud chceš úplně čistý vzhled */
-    box-shadow: none; 
 }
 
-.carousel-card, .carousel-card img {
-    border-radius: 0 !important; /* Striktně hranaté rohy */
+.wide-carousel-slider {
+    display: flex; 
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
 }
 
-/* Styl textu uvnitř obrázku zůstává zlatý, aby byl na tmavém pozadí vidět */
+.carousel-card {
+    min-width: 100%; 
+    flex-shrink: 0;
+    position: relative;
+    aspect-ratio: 16 / 9; 
+}
+
+.carousel-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0 !important;
+}
+
+
+.carousel-text-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 30px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    color: white;
+    text-align: left;
+}
+
 .carousel-text-overlay h3 {
     margin: 0;
     font-family: 'Cinzel', serif;
     font-size: 1.8rem;
     color: #c5a059; 
+}
+
+.carousel-text-overlay p {
+    margin: 5px 0 0;
+    font-size: 1.1rem;
 }
 /* =========================
    FORMULÁŘ
