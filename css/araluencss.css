@@ -65,14 +65,14 @@ a {
 .dekorace-vlevo {
     left: 20px;
     top: 150px;
-    width: 250px;
+    width: 500px;
     transform: rotate(-15deg);
 }
 
 .dekorace-vpravo {
     right: 10px;
     bottom: 100px;
-    width: 300px;
+    width: 600px;
     transform: rotate(10deg);
 }
 
