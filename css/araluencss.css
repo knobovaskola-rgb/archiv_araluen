@@ -617,27 +617,47 @@ footer a:hover {
 @media (max-width: 900px) {
 
     .navbar {
-        flex-wrap: wrap;
-        padding: 15px 20px;
+        /* Změna: nowrap zajistí, že logo a název zůstanou vedle sebe */
+        flex-wrap: nowrap; 
+        padding: 10px 15px;
+        justify-content: space-between;
+    }
+
+    /* Skupina pro logo a text, aby se neoddělily */
+    .nav-brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .logo img {
+        height: 45px; /* Menší logo pro mobily */
     }
 
     .navbar h2 {
-        font-size: 1.4rem;
+        font-size: 1.1rem; /* Menší písmo, aby se to na šířku vešlo */
+        margin: 0;
+        white-space: nowrap;
     }
 
     .nav-links {
-        display: none;
-        flex-direction: column;
+        display: none; /* Skryté menu, dokud neklikneš na burger */
+        position: absolute;
+        top: 100%;
+        left: 0;
         width: 100%;
-        margin-top: 20px;
+        flex-direction: column;
+        background: var(--primary-green);
+        padding: 20px;
+        box-sizing: border-box;
     }
 
     .nav-links.active {
-        display: flex;
+        display: flex; /* Zobrazí se po kliknutí (přes JS) */
     }
 
     .burger {
-        display: block;
+        display: block; /* Ukáže tři čárky */
     }
 
     .hero-content h1 {
