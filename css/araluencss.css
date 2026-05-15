@@ -124,7 +124,7 @@ a {
     padding: 120px 20px 80px;
 
     /* OPRAVA: Použijeme čistou barvu místo kombinace s obrázkem */
-    background-color: #0a0a0a; 
+    background-color: #5c4336; 
     
     /* Tyto řádky už bez obrázku nejsou potřeba, ale ničemu nevadí */
     background-size: cover;
