@@ -284,13 +284,21 @@ a {
 ========================= */
 
 #premiere-carousel-section {
-    padding: 50px 0;
-    background-color: #f4e4bc;
+    padding: 40px 0;
+}
+
+.premieres-title {
+    text-align: center;
+    font-family: 'Cinzel', serif;
+    /* Používáme stejnou tmavou barvu jako u ostatních nadpisů */
+    color: var(--dark-wood); 
+    font-size: 2.2rem;
+    margin-bottom: 30px;
 }
 
 .wide-carousel-container {
     position: relative;
-    max-width: 1000px;
+    max-width: 1100px; /* Můžeš upravit podle potřeby */
     margin: 0 auto;
     display: flex;
     align-items: center;
@@ -299,62 +307,21 @@ a {
 .wide-carousel-viewport {
     overflow: hidden;
     width: 100%;
+    /* Odstranění stínu, pokud chceš úplně čistý vzhled */
+    box-shadow: none; 
 }
 
-.wide-carousel-slider {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.carousel-card, .carousel-card img {
+    border-radius: 0 !important; /* Striktně hranaté rohy */
 }
 
-.carousel-card {
-    min-width: 100%;
-    position: relative;
-    aspect-ratio: 16 / 9; 
-}
-
-.carousel-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-}
-
-/* Text uvnitř obrázku */
-.carousel-text-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 40px 20px 20px;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    color: white;
-    text-align: left;
-}
-
+/* Styl textu uvnitř obrázku zůstává zlatý, aby byl na tmavém pozadí vidět */
 .carousel-text-overlay h3 {
     margin: 0;
     font-family: 'Cinzel', serif;
     font-size: 1.8rem;
-    color: #c5a059;
+    color: #c5a059; 
 }
-
-.carousel-text-overlay p {
-    margin: 5px 0 0;
-    font-size: 1.1rem;
-}
-
-/* Tlačítka */
-.carousel-btn {
-    background: rgba(45, 62, 46, 0.8);
-    color: white;
-    border: none;
-    padding: 20px 15px;
-    cursor: pointer;
-    z-index: 10;
-    font-size: 1.5rem;
-}
-
-.carousel-btn:hover { background: #2d3e2e; }
 /* =========================
    FORMULÁŘ
 ========================= */
