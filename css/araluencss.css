@@ -690,4 +690,23 @@ footer a:hover {
         width: 100%;
         max-width: 350px;
     }
+   .carousel-btn {
+        /* Zmenšíme vnitřní výplň (padding), aby tlačítko nebylo tak masivní */
+        padding: 10px 12px;
+        
+        /* Zmenšíme samotnou velikost šipky */
+        font-size: 1rem;
+        
+        /* Pokud chceš, aby byly šipky trochu průhlednější a méně rušily */
+        background: rgba(45, 62, 46, 0.5);
+    }
+
+    /* Volitelné: Posunutí šipek úplně ke kraji, aby nezabíraly místo v obraze */
+    .prev-btn {
+        left: 5px;
+    }
+    
+    .next-btn {
+        right: 5px;
+    }
 }
