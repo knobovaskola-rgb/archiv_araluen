@@ -48,6 +48,34 @@ a {
     transition: 0.3s ease;
 }
 
+.bg-dekorace {
+    position: fixed;
+    z-index: -1;
+    opacity: 0.4; 
+    pointer-events: none; 
+    display: none; 
+}
+
+@media screen and (min-width: 1200px) {
+    .bg-dekorace {
+        display: block;
+    }
+}
+
+.dekorace-vlevo {
+    left: 20px;
+    top: 150px;
+    width: 150px;
+    transform: rotate(-15deg);
+}
+
+.dekorace-vpravo {
+    right: 10px;
+    bottom: 100px;
+    width: 200px;
+    transform: rotate(10deg);
+}
+
 /* =========================
    NAVBAR
 ========================= */
