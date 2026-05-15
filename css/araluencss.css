@@ -541,99 +541,108 @@ summary {
 }
 
 /* =========================
-   RECENZE
+   RECENZE - KOMPLETNÍ NÁVRAT K DESIGNU
 ========================= */
 
 #recenze {
     padding: 100px 20px;
-    background: var(--dark-wood); 
-    color: #fdf6e3; 
+    background-color: #4b3621; /* Přímá barva pro jistotu (tmavé dřevo) */
+    background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)); /* Jemné ztmavení pro hloubku */
     text-align: center;
-    position: relative;
-    overflow: hidden;
+    margin-top: 50px;
 }
 
 #recenze h2 {
-    color: var(--accent-gold);
-    margin-bottom: 50px;
+    color: #c5a059; /* Zlatá */
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
 }
 
+/* Ta zlatá linka pod nadpisem */
 #recenze h2::after {
     content: '';
     display: block;
-    width: 60px;
+    width: 80px;
     height: 3px;
-    background: var(--accent-gold);
-    margin: 15px auto;
+    background: #c5a059;
+    margin: 20px auto 0;
 }
 
 .reviews-grid {
     display: flex;
     flex-wrap: wrap;
     justify-content: center; 
-    gap: 40px;
+    gap: 30px;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 50px auto 0;
 }
 
 .review-card {
-    /* NÁVRAT K PŮVODNÍMU STYLU */
-    background: rgba(255, 255, 255, 0.05); 
-    padding: 40px;
-    border-radius: 2px; 
-    border: 1px solid rgba(197, 160, 89, 0.3); 
+    /* Vizuál karty */
+    background: rgba(255, 255, 255, 0.07); /* To jemné prosvítání */
+    padding: 40px 30px;
+    border: 1px solid rgba(197, 160, 89, 0.4); /* Zlatý rámeček */
+    border-radius: 4px;
+    
+    /* Rozložení */
     flex: 1 1 300px;
-    max-width: 350px;
+    max-width: 380px;
     position: relative;
     
-    /* ZÁKAZ POHYBU A KLIKÁNÍ */
-    transform: none !important;
+    /* STOP POHYBU */
     transition: none !important;
+    transform: none !important;
     cursor: default;
 }
 
-/* ODSTRANĚNÍ VŠECH EFEKTŮ PO NAJETÍ */
+/* Totální vypnutí jakékoliv změny při přejetí */
 .review-card:hover {
     transform: none !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-    border-color: rgba(197, 160, 89, 0.3) !important;
+    background: rgba(255, 255, 255, 0.07) !important;
+    border-color: rgba(197, 160, 89, 0.4) !important;
     box-shadow: none !important;
 }
 
+/* Velká uvozovka v pozadí */
+.review-card::before {
+    content: "“";
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-size: 7rem;
+    color: #c5a059;
+    opacity: 0.2;
+    font-family: serif;
+    line-height: 1;
+}
+
 .review-card p {
+    font-family: 'Lora', serif;
+    font-style: italic;
     font-size: 1.1rem;
     line-height: 1.8;
-    font-style: italic;
-    margin-bottom: 30px;
-    color: #fdf6e3; /* Slonová kost */
+    color: #f4e4bc; /* Barva papíru / slonová kost */
+    margin-bottom: 25px;
+    position: relative; /* Aby byl text nad uvozovkou */
+    z-index: 2;
 }
 
 .review-card span {
     display: block;
     font-family: 'Cinzel', serif;
-    color: var(--accent-gold);
+    color: #c5a059;
+    font-weight: bold;
+    text-transform: uppercase;
     letter-spacing: 2px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
 }
 
-.review-card::before {
-    content: "“";
-    position: absolute;
-    top: -10px;
-    left: 20px;
-    font-size: 6rem;
-    color: var(--accent-gold);
-    opacity: 0.15;
-}
-
+/* Přizpůsobení pro mobily */
 @media (max-width: 768px) {
-    .reviews-grid {
-        flex-direction: column;
-        align-items: center;
-    }
     .review-card {
-        width: 100%;
-        max-width: 90%;
+        max-width: 100%;
+        margin: 0 10px;
     }
 }
 /* =========================
