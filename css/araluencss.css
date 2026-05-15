@@ -512,7 +512,7 @@ summary {
     font-weight: bold;
 
 /* =========================
-   RECENZE - FINÁLNÍ VZHLED (PODLE SCREENSHOTU)
+   RECENZE -
 ========================= */
 
 #recenze {
@@ -605,99 +605,54 @@ summary {
         max-width: 90%;
     }
 }
-/* =========================
-   FOOTER S MAPOU
-========================= */
-
-footer {
-    background: var(--dark-wood);
-    color: #f4e4bc;
-    padding: 60px 20px 20px;
-    margin-top: 0; /* Mapa teď plynule navazuje na recenze */
+.footer {
+    background-color: #4b2e1e;
+    color: white;
+    padding: 40px 80px;
+    font-family: serif;
 }
 
-.footer-container {
-    max-width: 1200px;
-    margin: 0 auto;
+.footer-top {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
-    gap: 50px;
+    align-items: center;
+    gap: 60px;
 }
 
 /* LEVÁ STRANA */
-.footer-contacts {
+.footer-left {
     flex: 1;
-    text-align: left;
-}
-
-.footer-contacts h3 {
-    text-align: left; /* Přepisujeme globální centrování */
-    color: var(--accent-gold);
-    margin-bottom: 20px;
-}
-
-.footer-contacts p {
-    margin: 10px 0;
+    font-size: 28px;
+    line-height: 1.5;
 }
 
 /* PRAVÁ STRANA */
-.footer-map-section {
-    flex: 1.5; /* Mapa bude o kousek širší než kontakty */
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end; /* Zarovnání textu pod mapou doprava */
+.footer-right {
+    flex: 1;
+    text-align: center;
 }
 
-.footer-map-wrapper {
-    width: 100%;
-    height: 250px;
-    border-radius: 8px;
-    overflow: hidden;
-    border: 1px solid rgba(197, 160, 89, 0.3);
+.footer-right h3 {
+    margin-bottom: 15px;
 }
 
-.footer-map-wrapper iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
+.footer-right p {
+    margin: 10px 0;
 }
 
-.map-subtext {
-    margin-top: 15px;
-    font-size: 0.85rem;
-    font-style: italic;
-    color: var(--accent-gold);
-    text-align: right;
+.socials {
+    margin: 15px 0;
+}
+
+.socials a {
+    color: #d4af37;
+    text-decoration: none;
 }
 
 .footer-bottom {
-    margin-top: 50px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
     text-align: center;
-    font-size: 0.8rem;
-}
-
-/* RESPONSIVE: Na mobilu pod sebou */
-@media (max-width: 768px) {
-    .footer-container {
-        flex-direction: column;
-        text-align: center;
-        gap: 40px;
-    }
-
-    .footer-contacts, 
-    .footer-contacts h3, 
-    .footer-map-section {
-        text-align: center;
-        align-items: center;
-        width: 100%;
-    }
-
-    .map-subtext {
-        text-align: center;
-    }
+    margin-top: 40px;
+    font-size: 20px;
 }
 /* =========================
    RESPONSIVE
