@@ -285,7 +285,7 @@ a {
 
 #premiere-carousel-section {
     padding: 50px 0;
-    background-color: #faf8f5; /* Světlé pozadí pro oddělení sekcí */
+    background-color: #f4e4bc;
 }
 
 .wide-carousel-container {
@@ -309,7 +309,7 @@ a {
 .carousel-card {
     min-width: 100%;
     position: relative;
-    aspect-ratio: 16 / 9; /* Fixní poměr pro širokoúhlé obrázky */
+    aspect-ratio: 16 / 9; 
 }
 
 .carousel-card img {
@@ -317,7 +317,6 @@ a {
     height: 100%;
     object-fit: cover;
     display: block;
-    /* Žádné border-radius = ostré rohy */
 }
 
 /* Text uvnitř obrázku */
