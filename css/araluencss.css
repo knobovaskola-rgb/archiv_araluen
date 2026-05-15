@@ -619,40 +619,44 @@ summary {
     gap: 60px;
 }
 
-/* LEVÁ STRANA */
-.footer-left {
-    flex: 1;
-    font-size: 28px;
-    line-height: 1.5;
+.footer-container{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:80px;
 }
 
-/* PRAVÁ STRANA */
-.footer-right {
-    flex: 1;
-    text-align: center;
+/* LEVÁ STRANA - TEXT */
+.footer-map-section{
+    flex:1;
+    text-align:left;
 }
 
-.footer-right h3 {
-    margin-bottom: 15px;
+.map-subtext{
+    font-size:28px;
+    line-height:1.5;
+    max-width:600px;
 }
 
-.footer-right p {
-    margin: 10px 0;
+/* PRAVÁ STRANA - KONTAKT */
+.footer-contacts{
+    flex:1;
+    text-align:center;
 }
 
-.socials {
-    margin: 15px 0;
+.footer-map-wrapper{
+    margin-top:20px;
 }
 
-.socials a {
-    color: #d4af37;
-    text-decoration: none;
+.footer-map-wrapper iframe{
+    width:300px;
+    height:180px;
+    border:0;
 }
 
-.footer-bottom {
-    text-align: center;
-    margin-top: 40px;
-    font-size: 20px;
+.footer-bottom{
+    text-align:center;
+    margin-top:40px;
 }
 /* =========================
    RESPONSIVE
